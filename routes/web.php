@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('test');
+});
+
+Route::get('/json', function () {
+    return App\Models\User::all();
+});
+
+Route::get('/del/{id}', function ($id) {
+    App\Models\User::find($id)->delete();
+    return App\Models\User::all();
 });
