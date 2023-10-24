@@ -18,11 +18,16 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('test');
+    return view('test_short');
 });
 
 Route::get('/json', function () {
-    return App\Models\User::all();
+    return [
+        ['id' => '11', 'name' => '鈴木ichiro'],
+        ['id' => '12', 'name' => '鈴木jiro'],
+    ];
+    // 削除機能を使う場合は、以下の実装を利用
+    // return App\Models\User::all();
 });
 
 Route::get('/del/{id}', function ($id) {
